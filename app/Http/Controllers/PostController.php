@@ -14,7 +14,7 @@ class PostController extends Controller
     public function index()
     {
         //Muestra la vista principal
-        return "Hola desde el metodo index en el controlador";
+        return view('dashboard.posts');
     }
 
     /**
@@ -25,6 +25,7 @@ class PostController extends Controller
     public function create()
     {
         //Muestra un formulario para crear un recurso
+        
     }
 
     /**
