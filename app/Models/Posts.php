@@ -9,4 +9,5 @@ class Posts extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['title', 'url_clean', 'content'];
 }

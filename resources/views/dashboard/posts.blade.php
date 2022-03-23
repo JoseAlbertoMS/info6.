@@ -23,5 +23,7 @@
         <input type="submit" value="Enviar" class="btn btn-primary">
       </form>
       <br>
+
       @include('fragments.validation-errors')
+      @include('fragments.sesion')
 @endsection
