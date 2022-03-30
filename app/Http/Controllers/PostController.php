@@ -16,7 +16,11 @@ class PostController extends Controller
     public function index()
     {
         //Muestra la vista principal
-        return view('dashboard.posts');
+        $posts = Posts::get();
+        return view('dashboard.post.posts', [
+            'posts' => $posts
+        ]);
+
     }
 
     /**
@@ -27,7 +31,8 @@ class PostController extends Controller
     public function create()
     {
         //Muestra un formulario para crear un recurso
-        
+
+        return view('dashboard.post.create');
     }
 
     /**
