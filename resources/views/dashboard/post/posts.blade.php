@@ -32,7 +32,7 @@
             <td>
               <a href="{{ route('post.edit', $post->id) }}" class="btn btn-secondary">Edit</a>
             </td>
-            <td>
+            <td> 
               <a href="" class="btn btn-danger">Delete</a>
             </td>
           </tr>

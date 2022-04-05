@@ -77,7 +77,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //Muestra un recurso especifico por su id, sin opcion de editar
+        //Muestra un recurso esecifico por su id, sin opcion de editar
+        //No se utiliza en los cruds regularmente, mas para API rest
         return "Show: ". $id;
     }
 
@@ -87,10 +88,13 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Posts $post)
     {
         //Muestra un recurso especifico por su id, con opcion de editar
-        return "Edit: ". $id;
+            
+        return view('dashboard.post.edit', [
+            'post' => $post
+        ]);
     }
 
     /**
