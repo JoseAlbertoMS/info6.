@@ -15,9 +15,12 @@ use App\Http\Controllers\PostController;
 |
 */
 
+// La ruta principal retorna una vista llamada welcome
 Route::get('/', function () {
     return view('welcome');
 });
 
+// De esta manera se crean automaticamente todas las rutas para todas 
+// las funciones dentro del controlador PostController.
 Route::resource('/post', PostController::class);
 

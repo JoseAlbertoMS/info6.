@@ -1,3 +1,7 @@
+{{--    Estructura principal HTML, se hace referencia a un archivo css y a uno js.
+        Se crea un div como contenedor, dentro de ella se invoca a la barra de 
+        navegacion y se crea un campo yield llamado content  --}}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

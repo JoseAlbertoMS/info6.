@@ -15,7 +15,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        //Muestra la vista principal
+        /*Muestra la vista principal.
+        A partir del modelo Posts se obtienen los registros guardados y se asignan
+        a la variable $posts. Se retorna la vista dashboard.post.posts, junto con
+        los datos que contenga la variable $posts, llamada tambien posts en la vista*/
         $posts = Posts::get();
         return view('dashboard.post.posts', [
             'posts' => $posts
@@ -30,7 +33,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //Muestra un formulario para crear un recurso
+        /*Muestra un formulario para crear un recurso. Retorna la vista
+        dashboard.post.create*/
 
         return view('dashboard.post.create');
     }
@@ -51,11 +55,17 @@ class PostController extends Controller
             'title' => 'required | min:5 | max:500',
             'url_clean' => 'required',
             'content' => 'min:1 | max:500'
-        
         ]);*/
         //$validated = $request->validated();
+
+        /*Los datos del formulario proveniente de la vista dashboard.post.create 
+        se reciven como $request de tipo StorePostRequest que contiene las reglas
+        de validacion del formulario. En el modelo Posts se crea un registro en 
+        la base de datos despues de ser validado, se retorna la ruta anterior con
+        el metodo back(), pero mandando una llamada a la sesion status con el valor
+        Post created successfully para que muestre un mensaje de creacion exitoso
+        en la vista dashboard.post.create*/
         Posts::create($request->validated());
-        //dd($validated);
         return back()->with('status', 'Post created successfully');
     }
 

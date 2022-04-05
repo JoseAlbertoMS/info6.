@@ -13,7 +13,6 @@ class StorePostRequest extends FormRequest
      */
     public function authorize()
     {
-
         return true;
     }
 
@@ -22,6 +21,7 @@ class StorePostRequest extends FormRequest
      *
      * @return array
      */
+    /*Se crean las reglas de validacion de los campos del formulario */
     public function rules()
     {
         return [

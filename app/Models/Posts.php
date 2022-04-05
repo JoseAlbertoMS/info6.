@@ -1,5 +1,6 @@
 <?php
-
+// El modelo post solo acepta el titulo, la url y content para hacer la 
+// insercion en la base de datos
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -9,5 +10,7 @@ class Posts extends Model
 {
     use HasFactory;
 
+    /*$fillable indicara cuales son los campos de la base de datos
+    en los que se podra hacer una incersion masiva*/
     protected $fillable = ['title', 'url_clean', 'content'];
 }
