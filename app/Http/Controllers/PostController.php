@@ -19,7 +19,7 @@ class PostController extends Controller
         A partir del modelo Posts se obtienen los registros guardados y se asignan
         a la variable $posts. Se retorna la vista dashboard.post.posts, junto con
         los datos que contenga la variable $posts, llamada tambien posts en la vista*/
-        $posts = Posts::get();
+        $posts = Posts::orderBy('created_at', 'asc')->paginate(3);
         return view('dashboard.post.posts', [
             'posts' => $posts
         ]);
@@ -36,7 +36,9 @@ class PostController extends Controller
         /*Muestra un formulario para crear un recurso. Retorna la vista
         dashboard.post.create*/
 
-        return view('dashboard.post.create');
+        return view('dashboard.post.create', [
+            'post' => new Posts()
+        ]);
     }
 
     /**
@@ -104,9 +106,13 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StorePostRequest $request, Posts $post)
     {
         //Actualiza la info en la BD
+        //Posts::find($id)->update($request->validated());
+        //Posts::where('id', $id)->update($request->validated()); No se recomienda, hace dos queries
+        $post->update($request->validated());
+        return back()->with('status', 'Post updated successfully');
     }
 
     /**
@@ -118,5 +124,6 @@ class PostController extends Controller
     public function destroy($id)
     {
         //Elimina datos de la base de datos, en especifico por el id
+        
     }
 }

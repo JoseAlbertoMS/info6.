@@ -4,8 +4,9 @@
     <h1>Post</h1>
     @include('fragments.validation-errors')
     @include('fragments.sesion')
-    <form action="{{ route("post.update") }}" method="POST">
+    <form action="{{ route("post.update", $post->id) }}" method="POST">
         @csrf
+        @method('PUT')
         @include('dashboard.post._form')
     </form>
 @endsection
