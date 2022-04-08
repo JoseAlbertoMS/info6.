@@ -16,7 +16,7 @@ use App\Http\Controllers\PostController;
 */
 
 // La ruta principal retorna una vista llamada welcome
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('welcome');
 })->name('home');
 
