@@ -16,7 +16,7 @@ use App\Http\Controllers\PostController;
 */
 
 // La ruta principal retorna una vista llamada welcome
-Route::get('/home', function () {
+Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
@@ -24,3 +24,7 @@ Route::get('/home', function () {
 // las funciones dentro del controlador PostController.
 Route::resource('/post', PostController::class);
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
